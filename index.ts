@@ -19,7 +19,6 @@ let rootNode: RootNode;
 
 export function configureBot(rg: any) {
 
-    // TODO context.botConfig
 
     // construct tree
     const topLevelSequenceNode = new SequenceNode("Top Level Sequence Node");
