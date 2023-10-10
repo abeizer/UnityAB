@@ -3,14 +3,14 @@ import { NodeStatus } from "./BaseClasses/NodeStatus";
 
 export default class StandOnSwitch extends ActionNode {
 
-        constructor() {
-            super("Stand on switch");
-        }
+    constructor() {
+        super("Stand on switch");
+    }
 
-       /**
-        * Generated from prompt:
-        * 
-        */
+   /**
+    * Generated from prompt:
+    * 
+    */
 	public override async execute(rg): Promise<NodeStatus>{		
 		const floorSwitch = this.getData<any>("floorSwitch");
 

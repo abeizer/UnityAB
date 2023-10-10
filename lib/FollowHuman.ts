@@ -3,14 +3,14 @@ import { NodeStatus } from "./BaseClasses/NodeStatus";
 
 export default class FollowHuman extends ActionNode {
 
-        constructor() {
-            super("Follow human");
-        }
+    constructor() {
+        super("Follow human");
+    }
 
-       /**
-        * Generated from prompt:
-        * 
-        */
+   /**
+    * Generated from prompt:
+    * 
+    */
 	public override async execute(rg): Promise<NodeStatus>{		
 		const humanPlayer = this.getData<any>("humanPlayer");
 		if(humanPlayer && rg.MathFunctions.distanceSq(rg.getBot().position, humanPlayer.position) > 10 ) {
