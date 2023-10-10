@@ -1,5 +1,5 @@
 // Base Class Nodes
-import { NodeStatus } from "./lib/BaseClasses/NodeStatus";
+import { NodeStatus } from './lib/BaseClasses/NodeStatus';
 import Node from "./lib/BaseClasses/Node";
 import RootNode from './lib/BaseClasses/RootNode';
 import SequenceNode  from './lib/BaseClasses/SequenceNode';
@@ -12,66 +12,45 @@ import AlwaysFail from './lib/BaseClasses/Decorators/AlwaysFail';
 import Invert from './lib/BaseClasses/Decorators/Invert';
 
 // Generated Nodes
-
-        import IsInGame from './lib/IsInGame';
+import IsInGame from './lib/IsInGame';
+    
+import SetChartype from './lib/SetChartype';
+    
+import IsFloorSwitchInRange from './lib/IsFloorSwitchInRange';
+    
+import StandOnSwitch from './lib/StandOnSwitch';
     
 
-        import SetChartype from './lib/SetChartype';
+import IsHumanNearby from './lib/IsHumanNearby';
+    
+import FollowHuman from './lib/FollowHuman';
     
 
-        import IsFloorSwitchInRange from './lib/IsFloorSwitchInRange';
+import IsEnemyNearby from './lib/IsEnemyNearby';
     
-
-        import StandOnSwitch from './lib/StandOnSwitch';
-    
-
-
-        import IsHumanNearby from './lib/IsHumanNearby';
-    
-
-        import FollowHuman from './lib/FollowHuman';
+import Attack from './lib/Attack';
     
 
 
-        import IsEnemyNearby from './lib/IsEnemyNearby';
-    
-
-        import Attack from './lib/Attack';
-    
 
 
 
 
 // Reference to root node
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
-
-    
-        let rootNode: RootNode;
+let rootNode: RootNode;
     
 
 
