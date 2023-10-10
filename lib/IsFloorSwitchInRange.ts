@@ -13,7 +13,7 @@ export default class IsFloorSwitchInRange extends ConditionNode {
         */
 	public override async execute(rg): Promise<NodeStatus>{		
 		// if the bot is standing on a switch, then do nothing
-  	const floorSwitch = await rg.findEntity("FloorSwitch");
+		const floorSwitch = await rg.findEntity("FloorSwitch");
 		if(floorSwitch) {
 			this.setData("floorSwitch", floorSwitch);
 			return NodeStatus.SUCCESS;
