@@ -3,14 +3,14 @@ import { NodeStatus } from "./BaseClasses/NodeStatus";
 
 export default class IsHumanNearby extends ConditionNode {
 
-    constructor() {
-        super("Is human nearby?");
-    }
+        constructor() {
+            super("Is human nearby?");
+        }
 
-   /**
-    * Generated from prompt:
-    * 
-    */
+       /**
+        * Generated from prompt:
+        * 
+        */
 	public override async execute(rg): Promise<NodeStatus>{		
 		const humanPlayer = await rg.findEntity("HumanPlayer");
 		if(humanPlayer) {

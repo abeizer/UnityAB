@@ -3,14 +3,14 @@ import { NodeStatus } from "./BaseClasses/NodeStatus";
 
 export default class SetChartype extends ActionNode {
 
-    constructor() {
-        super("Set charType");
-    }
+        constructor() {
+            super("Set charType");
+        }
 
-   /**
-    * Generated from prompt:
-    * 
-    */
+       /**
+        * Generated from prompt:
+        * 
+        */
 	
 	charInfo = {
 			type: ["Mage", "Rogue", "Tank", "Archer"],

@@ -3,14 +3,14 @@ import { NodeStatus } from "./BaseClasses/NodeStatus";
 
 export default class Attack extends ActionNode {
 
-    constructor() {
-        super("Attack");
-    }
+        constructor() {
+            super("Attack");
+        }
 
-   /**
-    * Generated from prompt:
-    * 
-    */
+       /**
+        * Generated from prompt:
+        * 
+        */
 	public override async execute(rg): Promise<NodeStatus>{		
 		
 		const enemy = this.getData<any>("enemy");
