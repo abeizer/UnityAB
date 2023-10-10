@@ -12,6 +12,7 @@ import AlwaysFail from './lib/BaseClasses/Decorators/AlwaysFail';
 import Invert from './lib/BaseClasses/Decorators/Invert';
 
 // Generated Nodes
+import IsInGame from './lib/IsInGame';
 import SetCharacterType from './lib/SetCharacterType';
 import IsFloorSwitchInRange from './lib/IsFloorSwitchInRange';
 import StandOnSwitch from './lib/StandOnSwitch';
@@ -50,6 +51,7 @@ export function configureBot(rg: any) {
     chooseAnAction.addChild(attackEnemy);
 
     const topLevelSequenceNode = new SequenceNode("Top Level Sequence Node");
+    topLevelSequenceNode.addChild(new IsInGame());
     topLevelSequenceNode.addChild(new SetCharacterType());
     topLevelSequenceNode.addChild(chooseAnAction);
 
