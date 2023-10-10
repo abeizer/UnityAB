@@ -1,0 +1,155 @@
+{  
+    "RGStateInfo": [
+        {
+            "Object": "Player",
+            "State": [
+                {
+                    "FieldType": "variable",
+                    "FieldName": "id",
+                    "StateName": "id",
+                    "Type": "int"
+                },
+                {
+                    "FieldType": "variable",
+                    "FieldName": "position",
+                    "StateName": "position",
+                    "Type": "Vector3"
+                },
+                {
+                    "FieldType": "variable",
+                    "FieldName": "isIdle",
+                    "StateName": "isIdle",
+                    "Type": "bool"
+                },
+                {
+                    "FieldType": "variable",
+                    "FieldName": "animationPlaying",
+                    "StateName": "isCastingSpell",
+                    "Type": "bool"
+                },
+                {
+                    "FieldType": "variable",
+                    "FieldName": "runToggled",
+                    "StateName": "isRunning",
+                    "Type": "bool"
+                }
+            ]
+        },
+        {
+            "Object": "Chest",
+            "State": [
+                {
+                    "FieldType": "variable",
+                    "FieldName": "id",
+                    "StateName": "id",
+                    "Type": "int"
+                },
+                {
+                    "FieldType": "variable",
+                    "FieldName": "position",
+                    "StateName": "position",
+                    "Type": "Vector3"
+                },
+                {
+                    "FieldType": "variable",
+                    "FieldName": "locked",
+                    "StateName": "locked",
+                    "Type": "bool"
+                },
+                {
+                    "FieldType": "method",
+                    "FieldName": "contents",
+                    "StateName": "contents",
+                    "Type": "System.Collections.Generic.List\u003cstring\u003e"
+                }
+            ]
+        },
+        {
+            "Object": "Door",
+            "State": [
+                {
+                    "FieldType": "variable",
+                    "FieldName": "id",
+                    "StateName": "id",
+                    "Type": "int"
+                },
+                {
+                    "FieldType": "variable",
+                    "FieldName": "position",
+                    "StateName": "position",
+                    "Type": "Vector3"
+                },
+                {
+                    "FieldType": "variable",
+                    "FieldName": "locked",
+                    "StateName": "locked",
+                    "Type": "bool"
+                },
+                {
+                    "FieldType": "variable",
+                    "FieldName": "material",
+                    "StateName": "material",
+                    "Type": "string"
+                }
+            ]
+        },
+        {
+            "Object": "Wall",
+            "State": [
+                {
+                    "FieldType": "variable",
+                    "FieldName": "id",
+                    "StateName": "id",
+                    "Type": "int"
+                },
+                {
+                    "FieldType": "variable",
+                    "FieldName": "position",
+                    "StateName": "position",
+                    "Type": "Vector3"
+                },
+                {
+                    "FieldType": "method",
+                    "FieldName": "canBeVaulted",
+                    "StateName": "canBeVaultedOver",
+                    "Type": "bool"
+                }
+            ]
+        },
+        {
+            "Object": "Imp",
+            "State": [
+                {
+                    "FieldType": "variable",
+                    "FieldName": "id",
+                    "StateName": "id",
+                    "Type": "int"
+                },
+                {
+                    "FieldType": "variable",
+                    "FieldName": "position",
+                    "StateName": "position",
+                    "Type": "Vector3"
+                },
+                {
+                    "FieldType": "method",
+                    "FieldName": "hostile",
+                    "StateName": "hostile",
+                    "Type": "bool"
+                },
+                {
+                    "FieldType": "variable",
+                    "FieldName": "currentTarget",
+                    "StateName": "currentTarget",
+                    "Type": "int"
+                },
+                {
+                    "FieldType": "method",
+                    "FieldName": "resistance",
+                    "StateName": "resistance",
+                    "Type": "System.Collections.Generic.List\u003cstring\u003e"
+                }
+            ]
+        }
+    ]
+}
