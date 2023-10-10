@@ -12,7 +12,7 @@ import AlwaysFail from './lib/BaseClasses/Decorators/AlwaysFail';
 import Invert from './lib/BaseClasses/Decorators/Invert';
 
 // Generated Nodes
-import Node3 from './lib/Node3';
+import SetCharacterType from './lib/SetCharacterType';
 
 // Reference to root node
 let rootNode: RootNode;
@@ -22,12 +22,12 @@ export function configureBot(rg: any) {
     rg.isSpawnable=false
     rg.lifecycle="PERSISTENT"
     rg.characterConfig={
-  "role": "Explorer"
+  "characterType": "Archer"
 }
 
     // construct tree
     const topLevelSequenceNode = new SequenceNode("Top Level Sequence Node");
-    topLevelSequenceNode.addChild(new Node3());
+    topLevelSequenceNode.addChild(new SetCharacterType());
 
     rootNode = new RootNode("Root Node");
     rootNode.addChild(topLevelSequenceNode);
