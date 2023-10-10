@@ -12,60 +12,289 @@ import AlwaysFail from './lib/BaseClasses/Decorators/AlwaysFail';
 import Invert from './lib/BaseClasses/Decorators/Invert';
 
 // Generated Nodes
-import IsInGame from './lib/IsInGame';
-import SetChartype from './lib/SetChartype';
-import IsFloorSwitchInRange from './lib/IsFloorSwitchInRange';
-import StandOnSwitch from './lib/StandOnSwitch';
-import IsHumanNearby from './lib/IsHumanNearby';
-import FollowHuman from './lib/FollowHuman';
-import IsEnemyNearby from './lib/IsEnemyNearby';
-import Attack from './lib/Attack';
+
+    
+        import IsInGame from './lib/IsInGame';
+    
+
+    
+        import SetChartype from './lib/SetChartype';
+    
+
+    
+        import IsFloorSwitchInRange from './lib/IsFloorSwitchInRange';
+    
+
+    
+        import StandOnSwitch from './lib/StandOnSwitch';
+    
+
+    
+
+    
+        import IsHumanNearby from './lib/IsHumanNearby';
+    
+
+    
+        import FollowHuman from './lib/FollowHuman';
+    
+
+    
+
+    
+        import IsEnemyNearby from './lib/IsEnemyNearby';
+    
+
+    
+        import Attack from './lib/Attack';
+    
+
+    
+
+    
+
+    
+
+    
+
 
 // Reference to root node
-let rootNode: RootNode;
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        let rootNode: RootNode;
+    
+
 
 export function configureBot(rg: any) {
 
-    rg.isSpawnable=true
-    rg.lifecycle="MANAGED"
-    rg.characterConfig={
+
+    
+        rg.isSpawnable=true
+        rg.lifecycle="MANAGED"
+        
+            rg.characterConfig={
   "characterType": "Archer"
 }
+        
+    
 
-    // construct tree
-    const floorSwitches = new SequenceNode("Floor switches");
-    floorSwitches.addChild(new IsFloorSwitchInRange());
-    floorSwitches.addChild(new StandOnSwitch());
 
-    const supportHuman = new SequenceNode("Support human");
-    supportHuman.addChild(new IsHumanNearby());
-    supportHuman.addChild(new FollowHuman());
+// construct tree
 
-    const attackEnemy = new SequenceNode("Attack enemy");
-    attackEnemy.addChild(new IsEnemyNearby());
-    attackEnemy.addChild(new Attack());
+    
 
-    const chooseAnAction = new SelectorNode("Choose an action");
-    chooseAnAction.addChild(floorSwitches);
-    chooseAnAction.addChild(supportHuman);
-    chooseAnAction.addChild(attackEnemy);
+    
 
-    const topLevelSequenceNode = new SequenceNode("Top Level Sequence Node");
-    topLevelSequenceNode.addChild(new IsInGame());
-    topLevelSequenceNode.addChild(new SetChartype());
-    topLevelSequenceNode.addChild(chooseAnAction);
+    
 
-    rootNode = new RootNode("Root Node");
-    rootNode.addChild(topLevelSequenceNode);
+    
+
+    
+        
+        
+            const floorSwitches = new SequenceNode("Floor switches");
+        
+        
+            
+                floorSwitches.addChild(new IsFloorSwitchInRange());
+            
+            
+        
+            
+                floorSwitches.addChild(new StandOnSwitch());
+            
+            
+        
+
+    
+
+    
+
+    
+
+    
+        
+        
+            const supportHuman = new SequenceNode("Support human");
+        
+        
+            
+                supportHuman.addChild(new IsHumanNearby());
+            
+            
+        
+            
+                supportHuman.addChild(new FollowHuman());
+            
+            
+        
+
+    
+
+    
+
+    
+
+    
+        
+        
+            const attackEnemy = new SequenceNode("Attack enemy");
+        
+        
+            
+                attackEnemy.addChild(new IsEnemyNearby());
+            
+            
+        
+            
+                attackEnemy.addChild(new Attack());
+            
+            
+        
+
+    
+
+    
+        
+        
+            const chooseAnAction = new SelectorNode("Choose an action");
+        
+        
+            
+            
+                
+                
+                    chooseAnAction.addChild(floorSwitches);
+                
+            
+        
+            
+            
+                
+                
+                    chooseAnAction.addChild(supportHuman);
+                
+            
+        
+            
+            
+                
+                
+                    chooseAnAction.addChild(attackEnemy);
+                
+            
+        
+
+    
+
+    
+        
+        
+            const topLevelSequenceNode = new SequenceNode("Top Level Sequence Node");
+        
+        
+            
+                topLevelSequenceNode.addChild(new IsInGame());
+            
+            
+        
+            
+                topLevelSequenceNode.addChild(new SetChartype());
+            
+            
+        
+            
+            
+                
+                
+                    topLevelSequenceNode.addChild(chooseAnAction);
+                
+            
+        
+
+    
+
+    
+        
+            rootNode = new RootNode("Root Node");
+        
+        
+        
+            
+            
+                
+                
+                    rootNode.addChild(topLevelSequenceNode);
+                
+            
+        
+
+    
 
 }
 
 export async function processTick(rg: any) {
-    try
-    {
+try
+{
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
         await rootNode.execute(rg);
-    }
-    catch(err) {
-        console.log("Error Executing Tree: ", err)
-    }
+    
+
+}
+catch(err) {
+console.log("Error Executing Tree: ", err)
+}
 }
