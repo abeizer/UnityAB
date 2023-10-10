@@ -1,6 +1,5 @@
 import Node from "./Node";
 import { NodeStatus } from "./NodeStatus";
-import { RGBot } from "rg-bot";
 
 export default class RootNode extends Node {
 

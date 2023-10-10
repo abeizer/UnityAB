@@ -21,12 +21,15 @@ export function configureBot(rg: any) {
 
     rg.isSpawnable=false
     rg.lifecycle="PERSISTENT"
+    rg.characterConfig={
+    "role": "Explorer"
+}
 
     // construct tree
     const topLevelSequenceNode = new SequenceNode("Top Level Sequence Node");
     topLevelSequenceNode.addChild(new Node3());
 
-    rootNode = new RootNode("Root Node", bot);
+    rootNode = new RootNode("Root Node);
     rootNode.addChild(topLevelSequenceNode);
 
 }
