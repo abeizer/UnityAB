@@ -13,6 +13,8 @@ import Invert from './lib/BaseClasses/Decorators/Invert';
 
 // Generated Nodes
 import SetCharacterType from './lib/SetCharacterType';
+import IsFloorSwitchInRange from './lib/IsFloorSwitchInRange';
+import StandOnSwitch from './lib/StandOnSwitch';
 
 // Reference to root node
 let rootNode: RootNode;
@@ -26,8 +28,16 @@ export function configureBot(rg: any) {
 }
 
     // construct tree
+    const floorSwitches = new SequenceNode("Floor switches");
+    floorSwitches.addChild(new IsFloorSwitchInRange());
+    floorSwitches.addChild(new StandOnSwitch());
+
+    const chooseAnAction = new SelectorNode("Choose an action");
+    chooseAnAction.addChild(floorSwitches);
+
     const topLevelSequenceNode = new SequenceNode("Top Level Sequence Node");
     topLevelSequenceNode.addChild(new SetCharacterType());
+    topLevelSequenceNode.addChild(chooseAnAction);
 
     rootNode = new RootNode("Root Node");
     rootNode.addChild(topLevelSequenceNode);
