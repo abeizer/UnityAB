@@ -32,7 +32,6 @@ import Invert from './lib/BaseClasses/Decorators/Invert';
 
 
 
-
 let rootNode: RootNode;
     
 
