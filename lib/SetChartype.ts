@@ -1,10 +1,10 @@
 import ActionNode from "./BaseClasses/ActionNode";
 import { NodeStatus } from "./BaseClasses/NodeStatus";
 
-export default class SetCharacterType extends ActionNode {
+export default class SetChartype extends ActionNode {
 
         constructor() {
-            super("Set Character Type");
+            super("Set charType");
         }
 
        /**

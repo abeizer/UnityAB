@@ -13,7 +13,7 @@ import Invert from './lib/BaseClasses/Decorators/Invert';
 
 // Generated Nodes
 import IsInGame from './lib/IsInGame';
-import SetCharacterType from './lib/SetCharacterType';
+import SetChartype from './lib/SetChartype';
 import IsFloorSwitchInRange from './lib/IsFloorSwitchInRange';
 import StandOnSwitch from './lib/StandOnSwitch';
 import IsHumanNearby from './lib/IsHumanNearby';
@@ -52,7 +52,7 @@ export function configureBot(rg: any) {
 
     const topLevelSequenceNode = new SequenceNode("Top Level Sequence Node");
     topLevelSequenceNode.addChild(new IsInGame());
-    topLevelSequenceNode.addChild(new SetCharacterType());
+    topLevelSequenceNode.addChild(new SetChartype());
     topLevelSequenceNode.addChild(chooseAnAction);
 
     rootNode = new RootNode("Root Node");
