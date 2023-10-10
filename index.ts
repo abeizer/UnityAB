@@ -19,6 +19,10 @@ let rootNode: RootNode;
 
 export function configureBot(rg: any) {
 
+    rg.lifecycle=PERSISTENT
+    rg.characterConfig={
+  "role": "Explorer"
+}
 
     // construct tree
     const topLevelSequenceNode = new SequenceNode("Top Level Sequence Node");
