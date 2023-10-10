@@ -25,8 +25,8 @@ let rootNode: RootNode;
 
 export function configureBot(rg: any) {
 
-    rg.isSpawnable=false
-    rg.lifecycle="PERSISTENT"
+    rg.isSpawnable=true
+    rg.lifecycle="MANAGED"
     rg.characterConfig={
   "characterType": "Archer"
 }
