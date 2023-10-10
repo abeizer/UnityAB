@@ -9,8 +9,8 @@ const armorManager = require('mineflayer-armor-manager')
 
 
 // Base Class Nodes
-import { NodeStatus } from "./lib/BaseClasses/NodeStatus";
-import Node from "./lib/BaseClasses/Node";
+import { NodeStatus } from './lib/BaseClasses/NodeStatus';
+import Node from './lib/BaseClasses/Node';
 import RootNode from './lib/BaseClasses/RootNode';
 import SequenceNode  from './lib/BaseClasses/SequenceNode';
 import SelectorNode from './lib/BaseClasses/SelectorNode';
