@@ -1,7 +1,7 @@
 import ActionNode from "./BaseClasses/ActionNode";
 import { NodeStatus } from "./BaseClasses/NodeStatus";
 
-export default class Node14 extends ActionNode {
+export default class FollowHuman extends ActionNode {
 
         constructor() {
             super("Follow human");

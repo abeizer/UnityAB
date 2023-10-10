@@ -17,7 +17,7 @@ import SetChartype from './lib/SetChartype';
 import IsFloorSwitchInRange from './lib/IsFloorSwitchInRange';
 import StandOnSwitch from './lib/StandOnSwitch';
 import IsHumanNearby from './lib/IsHumanNearby';
-import Node14 from './lib/Node14';
+import FollowHuman from './lib/FollowHuman';
 import IsEnemyNearby from './lib/IsEnemyNearby';
 import Attack from './lib/Attack';
 
@@ -37,9 +37,9 @@ export function configureBot(rg: any) {
     floorSwitches.addChild(new IsFloorSwitchInRange());
     floorSwitches.addChild(new StandOnSwitch());
 
-    const followHuman = new SequenceNode("Follow human");
-    followHuman.addChild(new IsHumanNearby());
-    followHuman.addChild(new Node14());
+    const supportHuman = new SequenceNode("Support human");
+    supportHuman.addChild(new IsHumanNearby());
+    supportHuman.addChild(new FollowHuman());
 
     const attackEnemy = new SequenceNode("Attack enemy");
     attackEnemy.addChild(new IsEnemyNearby());
@@ -47,7 +47,7 @@ export function configureBot(rg: any) {
 
     const chooseAnAction = new SelectorNode("Choose an action");
     chooseAnAction.addChild(floorSwitches);
-    chooseAnAction.addChild(followHuman);
+    chooseAnAction.addChild(supportHuman);
     chooseAnAction.addChild(attackEnemy);
 
     const topLevelSequenceNode = new SequenceNode("Top Level Sequence Node");
