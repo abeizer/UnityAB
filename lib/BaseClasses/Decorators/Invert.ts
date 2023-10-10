@@ -13,9 +13,9 @@ export default class Invert extends Node {
         this.addChild(node);
     }
 
-    public override async execute(): Promise<NodeStatus>
+    public override async execute(rg: any): Promise<NodeStatus>
     {
-        const childStatus: NodeStatus = await this.children[0].execute();
+        const childStatus: NodeStatus = await this.children[0].execute(rg);
         switch(childStatus) {
             case NodeStatus.RUNNING: return NodeStatus.RUNNING;
             case NodeStatus.SUCCESS: return NodeStatus.FAILURE;

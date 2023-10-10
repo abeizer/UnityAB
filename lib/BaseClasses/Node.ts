@@ -13,7 +13,7 @@ export default abstract class Node
         this.name = name;
     }
 
-    public abstract execute(): Promise<NodeStatus>;
+    public abstract execute(rg: any): Promise<NodeStatus>;
 
     public addChild(child: Node): void
     {

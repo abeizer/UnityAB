@@ -12,11 +12,11 @@ export default class SelectorNode extends Node
         super(name);
     }
 
-    public override async execute(): Promise<NodeStatus>
+    public override async execute(rg: any): Promise<NodeStatus>
     {
         for (const child of this.children)
         {
-            const childStatus: NodeStatus = await child.execute();
+            const childStatus: NodeStatus = await child.execute(rg);
             if (childStatus == NodeStatus.SUCCESS || childStatus == NodeStatus.RUNNING)
             {
                 return childStatus;

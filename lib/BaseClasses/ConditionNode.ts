@@ -6,5 +6,5 @@ import { NodeStatus } from "./NodeStatus";
  */
 export default abstract class ConditionNode extends Node
 {
-    public abstract execute(): Promise<NodeStatus>;
+    public abstract execute(rg: any): Promise<NodeStatus>;
 }

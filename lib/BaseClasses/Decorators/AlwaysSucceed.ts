@@ -12,9 +12,9 @@ export default class AlwaysSucceed extends Node {
         this.addChild(node);
     }
 
-    public override async execute(): Promise<NodeStatus>
+    public override async execute(rg: any): Promise<NodeStatus>
     {
-        const childStatus: NodeStatus = await this.children[0].execute();
+        const childStatus: NodeStatus = await this.children[0].execute(rg);
         if(childStatus == NodeStatus.RUNNING) {
             return childStatus;
         }

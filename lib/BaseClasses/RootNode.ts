@@ -4,16 +4,15 @@ import { RGBot } from "rg-bot";
 
 export default class RootNode extends Node {
 
-    constructor(name: string, bot: RGBot) {
+    constructor(name: string) {
         super(name);
-        this.setData("bot", bot);
     }
 
-    public override async execute(): Promise<NodeStatus>
+    public override async execute(rg: any): Promise<NodeStatus>
     {
         if (this.children.length > 0)
         {
-            return await this.children[0].execute();
+            return await this.children[0].execute(rg);
         }
         return NodeStatus.FAILURE;
     }

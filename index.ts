@@ -1,12 +1,3 @@
-// Bot dependencies
-import { RGBot } from 'rg-bot';
-import RGCTFUtils, { CTFEvent } from 'rg-ctf-utils';
-import { Vec3 } from 'vec3';
-import { Item } from 'prismarine-item';
-import { Entity } from 'prismarine-entity';
-import { Block } from 'prismarine-block';
-const armorManager = require('mineflayer-armor-manager')
-
 // Base Class Nodes
 import { NodeStatus } from "./lib/BaseClasses/NodeStatus";
 import Node from "./lib/BaseClasses/Node";
@@ -23,17 +14,12 @@ import Invert from './lib/BaseClasses/Decorators/Invert';
 // Generated Nodes
 import Node3 from './lib/Node3';
 
-// Reference to root not
+// Reference to root node
 let rootNode: RootNode;
 
-export function configureBot(bot: RGBot) {
+export function configureBot(rg: any) {
 
-    bot.setDebug(false)
-    bot.allowParkour(true)
-    bot.allowDigWhilePathing(true)
-
-    // Load the armor-manager plugin (https://github.com/PrismarineJS/MineflayerArmorManager)
-    bot.mineflayer().loadPlugin(armorManager)
+    // TODO context.botConfig
 
     // construct tree
     const topLevelSequenceNode = new SequenceNode("Top Level Sequence Node");
@@ -44,10 +30,10 @@ export function configureBot(bot: RGBot) {
 
 }
 
-export async function runTurn(bot: RGBot) {
+export async function processTick(rg: any) {
     try
     {
-        await rootNode.execute();
+        await rootNode.execute(rg);
     }
     catch(err) {
         console.log("Error Executing Tree: ", err)
