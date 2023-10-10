@@ -21,9 +21,6 @@ export function configureBot(rg: any) {
 
     rg.isSpawnable=false
     rg.lifecycle="PERSISTENT"
-    rg.characterConfig={
-
-}
 
     // construct tree
     const topLevelSequenceNode = new SequenceNode("Top Level Sequence Node");
