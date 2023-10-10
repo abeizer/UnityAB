@@ -22,7 +22,7 @@ export function configureBot(rg: any) {
     rg.isSpawnable=false
     rg.lifecycle="PERSISTENT"
     rg.characterConfig={
-  "role": "Explorer"
+
 }
 
     // construct tree
