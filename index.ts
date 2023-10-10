@@ -12,29 +12,7 @@ import AlwaysFail from './lib/BaseClasses/Decorators/AlwaysFail';
 import Invert from './lib/BaseClasses/Decorators/Invert';
 
 // Generated Nodes
-import IsInGame from './lib/IsInGame';
-    
-import SetChartype from './lib/SetChartype';
-    
-import IsFloorSwitchInRange from './lib/IsFloorSwitchInRange';
-    
-import StandOnSwitch from './lib/StandOnSwitch';
-    
-
-import IsHumanNearby from './lib/IsHumanNearby';
-    
-import FollowHuman from './lib/FollowHuman';
-    
-
-import IsEnemyNearby from './lib/IsEnemyNearby';
-    
-import Attack from './lib/Attack';
-    
-
-
-
-
-
+import IsInGame from './lib/IsInGame';import SetChartype from './lib/SetChartype';import IsFloorSwitchInRange from './lib/IsFloorSwitchInRange';import StandOnSwitch from './lib/StandOnSwitch';import IsHumanNearby from './lib/IsHumanNearby';import FollowHuman from './lib/FollowHuman';import IsEnemyNearby from './lib/IsEnemyNearby';import Attack from './lib/Attack';
 
 // Reference to root node
 
