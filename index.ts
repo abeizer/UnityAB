@@ -15,6 +15,8 @@ import Invert from './lib/BaseClasses/Decorators/Invert';
 import SetCharacterType from './lib/SetCharacterType';
 import IsFloorSwitchInRange from './lib/IsFloorSwitchInRange';
 import StandOnSwitch from './lib/StandOnSwitch';
+import IsHumanNearby from './lib/IsHumanNearby';
+import Node14 from './lib/Node14';
 
 // Reference to root node
 let rootNode: RootNode;
@@ -32,8 +34,13 @@ export function configureBot(rg: any) {
     floorSwitches.addChild(new IsFloorSwitchInRange());
     floorSwitches.addChild(new StandOnSwitch());
 
+    const followHuman = new SequenceNode("Follow human");
+    followHuman.addChild(new IsHumanNearby());
+    followHuman.addChild(new Node14());
+
     const chooseAnAction = new SelectorNode("Choose an action");
     chooseAnAction.addChild(floorSwitches);
+    chooseAnAction.addChild(followHuman);
 
     const topLevelSequenceNode = new SequenceNode("Top Level Sequence Node");
     topLevelSequenceNode.addChild(new SetCharacterType());
