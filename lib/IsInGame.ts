@@ -1,6 +1,7 @@
 import ConditionNode from "./BaseClasses/ConditionNode";
 import { NodeStatus } from "./BaseClasses/NodeStatus";
 
+
 export default class IsInGame extends ConditionNode {
 
         constructor() {

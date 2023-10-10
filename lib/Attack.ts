@@ -1,6 +1,7 @@
 import ActionNode from "./BaseClasses/ActionNode";
 import { NodeStatus } from "./BaseClasses/NodeStatus";
 
+
 export default class Attack extends ActionNode {
 
         constructor() {
