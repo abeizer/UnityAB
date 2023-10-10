@@ -1,1 +1,1 @@
-{"isSpawnable":true,"lifecycle":"MANAGED","characterConfig":null}
+{"isSpawnable":false,"lifecycle":"PERSISTENT","characterConfig":"{\n  \"role\": \"Explorer\"\n}"}
