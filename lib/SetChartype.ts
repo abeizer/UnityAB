@@ -1,5 +1,6 @@
-import ActionNode from "./BaseClasses/ActionNode";
-import { NodeStatus } from "./BaseClasses/NodeStatus";
+import { ActionNode } from "./BaseClasses/LeafInterfaces";
+import { NodeStatus } from "./BaseClasses/Node";
+
 
 export default class SetChartype extends ActionNode {
 

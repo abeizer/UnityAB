@@ -1,10 +1,11 @@
-import Node from "./Node";
-import { NodeStatus } from "./NodeStatus";
+import { Node, NodeStatus } from "./Node";
+
 
 export default class RootNode extends Node {
 
     constructor(name: string) {
         super(name);
+        
     }
 
     public override async execute(rg: any): Promise<NodeStatus>

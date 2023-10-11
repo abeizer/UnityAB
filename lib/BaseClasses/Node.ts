@@ -1,11 +1,21 @@
-import { NodeStatus } from "./NodeStatus";
+/**
+ * Execution status of a Node
+ */
+export enum NodeStatus {
+    RUNNING,
+    SUCCESS,
+    FAILURE
+}
 
-export default abstract class Node
+/**
+ * All nodes in the Agent Builder tree inherit from this class
+ */
+export abstract class Node
 {
     public name: string;
     protected parent: Node;
     protected children: Array<Node> = new Array<Node>();
-    protected data: Map<string, any> = new Map<string, any>(); // data is only stored at root node
+    protected data: Map<string, any> = new Map<string, any>();
     protected status: NodeStatus;
 
     constructor(name: string)
