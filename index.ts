@@ -1,17 +1,11 @@
 
 
 // Base Class Nodes
-import { NodeStatus } from './lib/BaseClasses/NodeStatus';
-import Node from './lib/BaseClasses/Node';
-import RootNode from './lib/BaseClasses/RootNode';
-import SequenceNode  from './lib/BaseClasses/SequenceNode';
-import SelectorNode from './lib/BaseClasses/SelectorNode';
-import ConditionNode from './lib/BaseClasses/ConditionNode';
-import ActionNode from './lib/BaseClasses/ActionNode';
-// Decorators
-import AlwaysSucceed from './lib/BaseClasses/Decorators/AlwaysSucceed';
-import AlwaysFail from './lib/BaseClasses/Decorators/AlwaysFail';
-import Invert from './lib/BaseClasses/Decorators/Invert';
+import { Node, NodeStatus } from './lib/BaseClasses/Node';
+import RootNode from './lib/BaseClasses/Root';
+import { SequenceNode, SelectorNode }  from './lib/BaseClasses/Composites';
+import { ActionNode, ConditionNode } from './lib/BaseClasses/LeafInterfaces';
+import { AlwaysSucceed, AlwaysFail, Invert } from './lib/BaseClasses/Decorators';
 
 // Generated Nodes
 import IsInGame from './lib/IsInGame';

@@ -1,11 +1,21 @@
-import { NodeStatus } from "./NodeStatus";
+/**
+ * Execution status of a Node
+ */
+export enum NodeStatus {
+    RUNNING,
+    SUCCESS,
+    FAILURE
+}
 
-export default abstract class Node
+/**
+ * All nodes in the Agent Builder tree inherit from this class
+ */
+export abstract class Node
 {
     public name: string;
     protected parent: Node;
-    protected children: Array<Node> = new Array<Node>();
-    protected data: Map<string, any> = new Map<string, any>(); // data is only stored at root node
+    protected children: Array&lt;Node&gt; = new Array&lt;Node&gt;();
+    protected data: Map&lt;string, any&gt; = new Map&lt;string, any&gt;(); // data is only stored at root node
     protected status: NodeStatus;
 
     constructor(name: string)
@@ -13,7 +23,7 @@ export default abstract class Node
         this.name = name;
     }
 
-    public abstract execute(rg: any): Promise<NodeStatus>;
+    public abstract execute(rg: any): Promise&lt;NodeStatus&gt;;
 
     public addChild(child: Node): void
     {
@@ -24,7 +34,7 @@ export default abstract class Node
     /**
      * Retrieve data from root node
      */
-    protected getData<T>(key: string): any
+    protected getData&lt;T&gt;(key: string): any
     {
         let node: Node = this;
         while(node.parent != null) {
