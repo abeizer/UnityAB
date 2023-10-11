@@ -15,7 +15,7 @@ export abstract class Node
     public name: string;
     protected parent: Node;
     protected children: Array<Node> = new Array<Node>();
-    protected data: Map&lt;string, any&gt; = new Map&lt;string, any&gt;(); // data is only stored at root node
+    protected data: Map<string, any> = new Map<string, any>();
     protected status: NodeStatus;
 
     constructor(name: string)
@@ -23,7 +23,7 @@ export abstract class Node
         this.name = name;
     }
 
-    public abstract execute(rg: any): Promise&lt;NodeStatus&gt;;
+    public abstract execute(rg: any): Promise<NodeStatus>;
 
     public addChild(child: Node): void
     {
@@ -34,7 +34,7 @@ export abstract class Node
     /**
      * Retrieve data from root node
      */
-    protected getData&lt;T&gt;(key: string): any
+    protected getData<T>(key: string): any
     {
         let node: Node = this;
         while(node.parent != null) {
