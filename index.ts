@@ -51,7 +51,7 @@ export function configureBot(rg: any) {
     topLevelSequenceNode.addChild(new SetChartype());
     topLevelSequenceNode.addChild(chooseAnAction);
 
-    rootNode = new RootNode("Root Node");
+        rootNode = new RootNode("Root Node");
     rootNode.addChild(topLevelSequenceNode);
 
 }
