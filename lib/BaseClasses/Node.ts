@@ -14,7 +14,7 @@ export abstract class Node
 {
     public name: string;
     protected parent: Node;
-    protected children: Array&lt;Node&gt; = new Array&lt;Node&gt;();
+    protected children: Array<Node>; = new Array&lt;Node&gt;();
     protected data: Map&lt;string, any&gt; = new Map&lt;string, any&gt;(); // data is only stored at root node
     protected status: NodeStatus;
 
