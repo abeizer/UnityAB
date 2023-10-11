@@ -5,7 +5,7 @@ import { Node, NodeStatus } from "./Node";
  */
 export abstract class ActionNode extends Node
 {
-    public abstract execute(rg: any): Promise&lt;NodeStatus&gt;;
+    public abstract execute(rg: any): Promise<NodeStatus>;
 }
 
 /**
@@ -13,5 +13,5 @@ export abstract class ActionNode extends Node
  */
 export abstract class ConditionNode extends Node
 {
-    public abstract execute(rg: any): Promise&lt;NodeStatus&gt;;
+    public abstract execute(rg: any): Promise<NodeStatus>;
 }

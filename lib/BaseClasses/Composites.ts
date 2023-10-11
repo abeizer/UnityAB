@@ -10,7 +10,7 @@ export class SequenceNode extends Node
         super(name);
     }
 
-    public override async execute(rg: any): Promise&lt;NodeStatus&gt;
+    public override async execute(rg: any): Promise<NodeStatus>
     {
         for (const child of this.children)
         {
@@ -36,7 +36,7 @@ export class SelectorNode extends Node
         super(name);
     }
 
-    public override async execute(rg: any): Promise&lt;NodeStatus&gt;
+    public override async execute(rg: any): Promise<NodeStatus>
     {
         for (const child of this.children)
         {

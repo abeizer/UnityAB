@@ -8,7 +8,7 @@ export default class RootNode extends Node {
         
     }
 
-    public override async execute(rg: any): Promise&lt;NodeStatus&gt;
+    public override async execute(rg: any): Promise<NodeStatus>
     {
         if (this.children.length > 0)
         {

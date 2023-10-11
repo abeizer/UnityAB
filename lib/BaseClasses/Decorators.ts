@@ -10,7 +10,7 @@ export class AlwaysSucceed extends Node {
         this.addChild(node);
     }
 
-    public override async execute(rg: any): Promise&lt;NodeStatus&gt;
+    public override async execute(rg: any): Promise<NodeStatus>
     {
         const childStatus: NodeStatus = await this.children[0].execute(rg);
         if(childStatus == NodeStatus.RUNNING) {
@@ -30,7 +30,7 @@ export class AlwaysFail extends Node {
         this.addChild(node);
     }
 
-    public override async execute(rg: any): Promise&lt;NodeStatus&gt;
+    public override async execute(rg: any): Promise<NodeStatus>
     {
         const childStatus: NodeStatus = await this.children[0].execute(rg);
         if(childStatus == NodeStatus.RUNNING) {
@@ -52,7 +52,7 @@ export class Invert extends Node {
         this.addChild(node);
     }
 
-    public override async execute(rg: any): Promise&lt;NodeStatus&gt;
+    public override async execute(rg: any): Promise<NodeStatus>
     {
         const childStatus: NodeStatus = await this.children[0].execute(rg);
         switch(childStatus) {
