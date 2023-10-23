@@ -17,11 +17,8 @@ export default class Attack extends ActionNode {
 		const enemy = this.getData<any>("enemy");
 		if(enemy && enemy.health > 0) {
 			rg.performAction("PerformSkill", {
-				skillId: 1,
-				targetId: enemy.id,
-				xPosition: enemy.position.x,
-				yPosition: enemy.position.y,
-				zPosition: enemy.position.z
+				skillId: 0,
+				targetId: enemy.id
 			});
 			return NodeStatus.RUNNING;
   	}
