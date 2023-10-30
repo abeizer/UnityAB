@@ -21,7 +21,7 @@ export default class StandOnSwitch extends ActionNode {
 		}
 
 		// otherwise go to it
-		if(floorSwitch && rg.MathFunctions.distanceSq(rg.getBot().position, floorSwitch.position) < 30) {
+		if(floorSwitch && rg.MathFunctions.distanceSq(rg.getBot().position, floorSwitch.position) < 50) {
 			rg.performAction("FollowObject", {
 				targetId: floorSwitch.id,
 				range: 0.1
