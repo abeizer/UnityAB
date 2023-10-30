@@ -16,6 +16,7 @@ export default class Attack extends ActionNode {
 		
 		const enemy = this.getData<any>("enemy");
 		if(enemy && enemy.health > 0) {
+			console.log("queuing attack enemy!!!!")
 			rg.performAction("PerformSkill", {
 				skillId: 0,
 				targetId: enemy.id
