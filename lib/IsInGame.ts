@@ -13,7 +13,6 @@ export default class IsInGame extends ConditionNode {
         * 
         */
 	public override async execute(rg): Promise<NodeStatus>{		
-		console.log("fuck")
 		return rg.getState().sceneName == "BossRoom" ? NodeStatus.SUCCESS : NodeStatus.RUNNING;
 	}
 
