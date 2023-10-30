@@ -16,18 +16,18 @@ export default class StandOnSwitch extends ActionNode {
 		const floorSwitch = this.getData<any>("floorSwitch");
 
 		// already standing on it
-		if(floorSwitch && await rg.entityHasAttribute(floorSwitch, "isOn", true)) {
-			return NodeStatus.SUCCESS;
-		}
+		if(floorSwitch) {
+			if(await rg.entityHasAttribute(floorSwitch, "isOn", true)) {
+				return NodeStatus.SUCCESS;
+			}
 
-		// otherwise go to it
-		if(floorSwitch && rg.MathFunctions.distanceSq(rg.getBot().position, floorSwitch.position) < 50) {
+			// otherwise go to it
 			rg.performAction("FollowObject", {
 				targetId: floorSwitch.id,
 				range: 0.1
 			});
-			return NodeStatus.RUNNING;
-  	}
+			return NodeStatus.SUCCESS;
+		}
 
 		return NodeStatus.FAILURE
 	}
