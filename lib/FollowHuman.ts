@@ -17,7 +17,7 @@ export default class FollowHuman extends ActionNode {
 		if(humanPlayer) {
 			rg.performAction("FollowObject", {
 				targetId: humanPlayer.id,
-				range: 5
+				range: 2
 			});
 			return NodeStatus.SUCCESS;
 		}
