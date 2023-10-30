@@ -16,6 +16,7 @@ export default class IsEnemyNearby extends ConditionNode {
 		// null entity because we want either Imp or Crystal, whichever is closer
 		const enemy = await rg.findNearestEntity(null, null, (entity) => { return entity.team == 1 && !entity.broken});
 		if(enemy) {
+			console.log("found enemy");
 			this.setData("enemy", enemy);
 			return NodeStatus.SUCCESS;
 		}
