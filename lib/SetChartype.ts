@@ -22,14 +22,14 @@ export default class SetChartype extends ActionNode {
 
 	public override async execute(rg): Promise<NodeStatus>{		
 		// The character type we request may not be the one we actually get
-		const characterType = rg.characterConfig.characterType;
+		const characterType = rg.getBot().characterType;
 		if (characterType) {
 			const newCharType = this.charInfo.type.indexOf(characterType);
 			this.setData("charType", newCharType)
 			return NodeStatus.SUCCESS;
   	}
 		
-		console.error("NO CHARACTER TYPE");
+		console.error("Could not parse character type");
 		return NodeStatus.FAILURE;
 	}
 
