@@ -10,6 +10,7 @@ import { AlwaysSucceed, AlwaysFail, Invert } from './lib/BaseClasses/Decorators'
 // Generated Nodes
 import IsInGame from './lib/IsInGame';
 import SetChartype from './lib/SetChartype';
+import NotAlreadyPerformingAction from './lib/NotAlreadyPerformingAction';
 import IsFloorSwitchInRange from './lib/IsFloorSwitchInRange';
 import StandOnSwitch from './lib/StandOnSwitch';
 import IsHumanNearby from './lib/IsHumanNearby';
@@ -49,6 +50,7 @@ export function configureBot(rg: any) {
     const topLevelSequenceNode = new SequenceNode("Top Level Sequence Node");
     topLevelSequenceNode.addChild(new IsInGame());
     topLevelSequenceNode.addChild(new SetChartype());
+    topLevelSequenceNode.addChild(new NotAlreadyPerformingAction());
     topLevelSequenceNode.addChild(chooseAnAction);
 
         rootNode = new RootNode("Root Node");
