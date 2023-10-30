@@ -18,7 +18,7 @@ export default class FollowHuman extends ActionNode {
 		if(humanPlayer &&  distanceFrom > 50 ) {
 			rg.performAction("FollowObject", {
 				targetId: humanPlayer.id,
-				range: 2
+				range: 10
 			});
 			return NodeStatus.SUCCESS;
 		}
