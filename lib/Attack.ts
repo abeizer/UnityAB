@@ -15,9 +15,7 @@ export default class Attack extends ActionNode {
 	public override async execute(rg): Promise<NodeStatus>{		
 		
 		const enemy = this.getData<any>("enemy");
-		console.log("is enemy real", enemy.type);
-		console.log("health", enemy.health);
-		if(enemy && enemy.health > 0) {
+		if(enemy && (enemy.type == "Crystal" || enemy.health > 0)) {
 			console.log("queuing attack enemy!!!!")
 			rg.performAction("PerformSkill", {
 				skillId: 0,
