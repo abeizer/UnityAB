@@ -13,8 +13,9 @@ export default class IsHumanNearby extends ConditionNode {
         * 
         */
 	public override async execute(rg): Promise<NodeStatus>{		
-		const humanPlayer = await rg.findEntity("HumanPlayer");
-		if(humanPlayer) {
+		const humanPlayer = await rg.findNearestEntity("HumanPlayer");		
+		const distanceFrom = rg.MathFunctions.distanceSq(rg.getBot().position, humanPlayer.position);
+		if(humanPlayer && distanceFrom > 50) {
 			this.setData("humanPlayer", humanPlayer);
 			return NodeStatus.SUCCESS;
 		} 
