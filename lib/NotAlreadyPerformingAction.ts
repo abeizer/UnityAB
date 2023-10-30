@@ -15,7 +15,7 @@ export default class NotAlreadyPerformingAction extends ConditionNode {
 	public override async execute(rg): Promise<NodeStatus>{		
 		// Start typing your code here
 		const bot = rg.getBot();
-		if(bot.hasQueuedActions || bot.isMoving) {
+		if(bot.hasQueuedActions) {
 			return NodeStatus.RUNNING;
 		}
 		return NodeStatus.SUCCESS;
