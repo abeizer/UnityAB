@@ -20,7 +20,7 @@ export default class Attack extends ActionNode {
 				skillId: 0,
 				targetId: enemy.id
 			});
-			return NodeStatus.RUNNING;
+			return NodeStatus.SUCCESS;
   	}
 		return NodeStatus.FAILURE;
 	}
