@@ -13,7 +13,7 @@ export default class IsEnemyNearby extends ConditionNode {
         * 
         */
 	public override async execute(rg): Promise<NodeStatus>{		
-		const enemy = await rg.findNearestEntity(null, rg.getBot().position, (entity) => { return entity.team === 1 && !entity.broken});
+		const enemy = await rg.findNearestEntity("Imp", rg.getBot().position, (entity) => { return entity.team === 1 && !entity.broken});
 		if(enemy) {
 			this.setData("enemy", enemy);
 			return NodeStatus.SUCCESS;
