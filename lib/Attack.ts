@@ -18,10 +18,7 @@ export default class Attack extends ActionNode {
 		if(enemy && enemy.health > 0) {
 			rg.performAction("PerformSkill", {
 				skillId: 1,
-				targetId: enemy.id,
-				xPosition: enemy.position.x,
-				yPosition: enemy.position.y,
-				zPosition: enemy.position.z
+				targetId: enemy.id
 			});
 			return NodeStatus.RUNNING;
   	}
