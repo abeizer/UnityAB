@@ -14,7 +14,8 @@ export default class FollowHuman extends ActionNode {
         */
 	public override async execute(rg): Promise<NodeStatus>{		
 		const humanPlayer = this.getData<any>("humanPlayer");
-		if(humanPlayer && rg.MathFunctions.distanceSq(rg.getBot().position, humanPlayer.position) > 10 ) {
+		const distanceFrom = rg.MathFunctions.distanceSq(rg.getBot().position, humanPlayer.position);
+		if(humanPlayer &&  distanceFrom > 30 ) {
 			rg.performAction("FollowObject", {
 				targetId: humanPlayer.id,
 				range: 2
