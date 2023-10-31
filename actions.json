@@ -1,0 +1,89 @@
+{
+  "BotActions": [
+    {
+      "AssemblyName": "Unity.BossRoom.Gameplay",
+      "Namespace": "Gameplay.RegressionGames.RGBossRoom",
+      "Object": "RGAttackObjectAction",
+      "ObjectType": "HumanPlayer",
+      "MethodName": "AttackObject",
+      "ActionName": "AttackObject",
+      "Parameters": [
+        {
+          "Name": "targetId",
+          "Type": "ulong",
+          "Nullable": false
+        },
+        {
+          "Name": "xPosition",
+          "Type": "float",
+          "Nullable": false
+        },
+        {
+          "Name": "yPosition",
+          "Type": "float",
+          "Nullable": false
+        },
+        {
+          "Name": "zPosition",
+          "Type": "float",
+          "Nullable": false
+        }
+      ]
+    },
+    {
+      "AssemblyName": "Unity.BossRoom.Gameplay",
+      "Namespace": "",
+      "Object": "RGFollowObjectAction",
+      "ObjectType": "HumanPlayer",
+      "MethodName": "FollowObject",
+      "ActionName": "FollowObject",
+      "Parameters": [
+        {
+          "Name": "targetId",
+          "Type": "int",
+          "Nullable": false
+        },
+        {
+          "Name": "range",
+          "Type": "float?",
+          "Nullable": true
+        }
+      ]
+    },
+    {
+      "AssemblyName": "Unity.BossRoom.Gameplay",
+      "Namespace": "Unity.BossRoom.Gameplay.RegressionGames.RGBossRoom",
+      "Object": "RGPerformSkillAction",
+      "ObjectType": "HumanPlayer",
+      "MethodName": "PerformSkill",
+      "ActionName": "PerformSkill",
+      "Parameters": [
+        {
+          "Name": "skillId",
+          "Type": "int",
+          "Nullable": false
+        },
+        {
+          "Name": "targetId",
+          "Type": "int?",
+          "Nullable": true
+        },
+        {
+          "Name": "xPosition",
+          "Type": "float?",
+          "Nullable": true
+        },
+        {
+          "Name": "yPosition",
+          "Type": "float?",
+          "Nullable": true
+        },
+        {
+          "Name": "zPosition",
+          "Type": "float?",
+          "Nullable": true
+        }
+      ]
+    }
+  ]
+}

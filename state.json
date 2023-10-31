@@ -1,0 +1,126 @@
+{
+  "RGStateInfo": [
+    {
+      "AssemblyName": "Unity.BossRoom.Gameplay",
+      "Namespace": null,
+      "Object": "RGBreakableObjectState",
+      "ObjectType": "Crystal",
+      "State": [
+        {
+          "FieldType": "variable",
+          "FieldName": "team",
+          "StateName": "team",
+          "Type": "int"
+        },
+        {
+          "FieldType": "method",
+          "FieldName": "Broken",
+          "StateName": "broken",
+          "Type": "bool"
+        }
+      ]
+    },
+    {
+      "AssemblyName": "Unity.BossRoom.Gameplay",
+      "Namespace": null,
+      "Object": "RGEnemyState",
+      "ObjectType": "Imp",
+      "State": [
+        {
+          "FieldType": "variable",
+          "FieldName": "team",
+          "StateName": "team",
+          "Type": "int"
+        },
+        {
+          "FieldType": "method",
+          "FieldName": "Health",
+          "StateName": "health",
+          "Type": "int"
+        },
+        {
+          "FieldType": "method",
+          "FieldName": "HasQueuedActions",
+          "StateName": "hasQueuedActions",
+          "Type": "bool"
+        },
+        {
+          "FieldType": "method",
+          "FieldName": "QueuedActionTargets",
+          "StateName": "queuedActionTargets",
+          "Type": "System.Collections.Generic.List<ulong>"
+        },
+        {
+          "FieldType": "method",
+          "FieldName": "IsMoving",
+          "StateName": "isMoving",
+          "Type": "bool"
+        }
+      ]
+    },
+    {
+      "AssemblyName": "Unity.BossRoom.Gameplay",
+      "Namespace": null,
+      "Object": "RGPlayerState",
+      "ObjectType": "BotPlayer",
+      "State": [
+        {
+          "FieldType": "variable",
+          "FieldName": "team",
+          "StateName": "team",
+          "Type": "int"
+        },
+        {
+          "FieldType": "method",
+          "FieldName": "CharacterType",
+          "StateName": "characterType",
+          "Type": "string"
+        },
+        {
+          "FieldType": "method",
+          "FieldName": "Health",
+          "StateName": "health",
+          "Type": "int"
+        },
+        {
+          "FieldType": "method",
+          "FieldName": "IsOnCooldown",
+          "StateName": "isOnCooldown",
+          "Type": "System.Collections.Generic.Dictionary<string, bool>"
+        },
+        {
+          "FieldType": "method",
+          "FieldName": "HasQueuedActions",
+          "StateName": "hasQueuedActions",
+          "Type": "bool"
+        },
+        {
+          "FieldType": "method",
+          "FieldName": "QueuedActionTargets",
+          "StateName": "queuedActionTargets",
+          "Type": "System.Collections.Generic.List<ulong>"
+        },
+        {
+          "FieldType": "method",
+          "FieldName": "IsMoving",
+          "StateName": "isMoving",
+          "Type": "bool"
+        }
+      ]
+    },
+    {
+      "AssemblyName": "Unity.BossRoom.Gameplay",
+      "Namespace": "Unity.BossRoom.Gameplay.RegressionGames.RGBossRoom",
+      "Object": "RGSwitchState",
+      "ObjectType": "FloorSwitch",
+      "State": [
+        {
+          "FieldType": "method",
+          "FieldName": "IsOn",
+          "StateName": "isOn",
+          "Type": "bool"
+        }
+      ]
+    }
+  ]
+}
