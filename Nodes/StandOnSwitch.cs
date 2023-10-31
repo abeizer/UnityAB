@@ -22,27 +22,22 @@ namespace BossroomAb
 
         /**
          * Generated from prompt:
-         * 
+         * Go stand on the stored "FloorSwitch". If I'm already standing on it then return Running.
          */
-        class LeafNode extends TreeNode {
-        	public override async execute(rg): Promise<NodeStatus>{		
-        		const floorSwitch = this.getData<any>("floorSwitch");
+        protected override NodeStatus Execute(RG rgObject)
+        {
+        	var switchEntity = GetData<RGStateEntity>("FloorSwitch");
+        	var myPlayer = rgObject.GetMyPlayer();
         
-        		// already standing on it
-        		if(floorSwitch && await rg.entityHasAttribute(floorSwitch, "isOn", true)) {
-        			return NodeStatus.SUCCESS;
-        		}
-        
-        		// otherwise go to it
-        		if(floorSwitch && rg.MathFunctions.distanceSq(rg.getBot().position, floorSwitch.position) < 30) {
-        			rg.performAction("FollowObject", {
-        				targetId: floorSwitch.id,
-        				range: 0.1
-        			});
-        			return NodeStatus.RUNNING;
-          	}
-        
-        		return NodeStatus.FAILURE
+        	if (rgObject.MathFunctions.DistanceSq(myPlayer.position, switchEntity.position) < 0.25)
+        	{
+        		return NodeStatus.Running;
+        	}
+        	else
+        	{
+        		var followAction = new RGActionRequest("FollowObject", new Dictionary<string, object> { { "targetId", switchEntity.id } });
+        		rgObject.PerformAction(followAction);
+        		return NodeStatus.Success;
         	}
         }
     }

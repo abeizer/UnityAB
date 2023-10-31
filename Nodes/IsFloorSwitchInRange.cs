@@ -22,19 +22,17 @@ namespace BossroomAb
 
         /**
          * Generated from prompt:
-         * 
+         * Find the closest floor switch. If it's not on then store it
          */
-        class LeafNode extends TreeNode {
-        	public override async execute(rg): Promise<NodeStatus>{		
-        		// if the bot is standing on a switch, then do nothing
-        		const floorSwitch = await rg.findEntity("FloorSwitch");
-        		if(floorSwitch) {
-        			this.setData("floorSwitch", floorSwitch);
-        			return NodeStatus.SUCCESS;
-        		}
-        
-        		return NodeStatus.FAILURE;
+        protected override NodeStatus Execute(RG rgObject)
+        {
+        	var floorSwitch = rgObject.FindNearestEntity("FloorSwitch");
+        	if (floorSwitch != null && !(bool)floorSwitch["isOn"])
+        	{
+        		SetData("FloorSwitch", floorSwitch);
+        		return NodeStatus.Success;
         	}
+        	return NodeStatus.Failure;
         }
     }
 }
