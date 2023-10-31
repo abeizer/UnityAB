@@ -22,11 +22,11 @@ namespace BossroomAb
 
         /**
          * Generated from prompt:
-         * If I'm not on the BossRoom scene then Running
+         * If I'm not on the BossRoom scene or my bot is not defined then Running else succeed
          */
         protected override NodeStatus Execute(RG rgObject)
         {
-        	if (rgObject.SceneName != "BossRoom")
+        	if (rgObject.SceneName != "BossRoom" || rgObject.GetMyPlayer() == null)
         		return NodeStatus.Running;
         	else
         		return NodeStatus.Success;
