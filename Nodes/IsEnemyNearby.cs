@@ -22,20 +22,21 @@ namespace BossroomAb
 
         /**
          * Generated from prompt:
-         * Find the closest entity that isn't broken (null or false) on team 1 and store a reference to it
+         * Find the closest entity that isn't broken on team 1. If it is within 50 meters then store a reference to it
          */
         protected override NodeStatus Execute(RG rgObject)
         {
-        	var entity = rgObject.FindNearestEntity(filterFunction: e => e.ContainsKey("team") && (int)e["team"] == 1 && (!e.ContainsKey("broken") || !(bool)e["broken"]));
-        	if (entity != null)
+        	var closestEntity = rgObject.FindNearestEntity(filterFunction: entity => 
+        		(int)entity.GetValueOrDefault("team", 0) == 1 && 
+        		!(bool)entity.GetValueOrDefault("broken", false));
+        		
+        	if(closestEntity != null && RG.MathFunctions.DistanceSq(rgObject.GetMyPlayer().position, closestEntity.position) <= 50)
         	{
-        		SetData("entity", entity);
+        		SetData("closestEntity", closestEntity);
         		return NodeStatus.Success;
         	}
-        	else
-        	{
-        		return NodeStatus.Failure;
-        	}
+        	
+        	return NodeStatus.Failure;
         }
     }
 }
