@@ -22,7 +22,7 @@ namespace BossroomAb
 
         /**
          * Generated from prompt:
-         * If I am within 0.1 sq. meters of a floorswitch that is not on, then return running
+         * If I am within 0.1 sq. meters of a floorswitch that is on, then return running
          */
         protected override NodeStatus Execute(RG rgObject)
         {
