@@ -22,15 +22,17 @@ namespace BossroomAb
 
         /**
          * Generated from prompt:
-         * Approach the "closestHuman" within 2 meters
+         * Approach the stored "closestHuman" at range of 2
          */
         protected override NodeStatus Execute(RG rgObject)
         {
-        	var closestHuman = rgObject.FindNearestEntity("HumanPlayer");
-        	if (closestHuman == null)
-        		return NodeStatus.Failure;
-        
-        	rgObject.PerformAction(new RGActionRequest("FollowObject", new Dictionary<string, object> { { "targetId", closestHuman.id }, { "range", 2 } }));
+        	var closestHuman = GetData<RGStateEntity>("closestHuman");
+        	var followAction = new RGActionRequest("FollowObject", new Dictionary<string, object>
+        	{
+        		{ "targetId", closestHuman.id },
+        		{ "range", 2f }
+        	});
+        	rgObject.PerformAction(followAction);
         	return NodeStatus.Success;
         }
     }
