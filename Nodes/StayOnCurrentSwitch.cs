@@ -22,12 +22,12 @@ namespace BossroomAb
 
         /**
          * Generated from prompt:
-         * If I am within 0.1 sq. meters of a floorswitch that is on, then return running
+         * If I am within 0.1 sq. meters of a floorswitch that is not on, then return running
          */
         protected override NodeStatus Execute(RG rgObject)
         {
         	var myPlayer = rgObject.GetMyPlayer();
-        	var floorSwitch = rgObject.FindNearestEntity("FloorSwitch", myPlayer.position, e => (bool)e.GetValueOrDefault("isOn", false));
+        	var floorSwitch = rgObject.FindNearestEntity("FloorSwitch", myPlayer.position, e => !(bool)e.GetValueOrDefault("isOn", false));
         	if (floorSwitch != null && RG.MathFunctions.DistanceSq(myPlayer.position, floorSwitch.position) <= 0.1)
         		return NodeStatus.Running;
         	else
