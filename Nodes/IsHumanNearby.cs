@@ -27,9 +27,8 @@ namespace BossroomAb
         protected override NodeStatus Execute(RG rgObject)
         {
         	var human = rgObject.FindNearestEntity("HumanPlayer");
-        	if(human == null)
-        		return NodeStatus.Failure;
-        	if(rgObject.MathFunctions.DistanceSq(rgObject.GetMyPlayer().position, human.position) > 50)
+        	if(human == null) return NodeStatus.Failure;
+        	if(RG.MathFunctions.DistanceSq(rgObject.GetMyPlayer().position, human.position) > 50)
         	{
         		SetData("closestHuman", human);
         		return NodeStatus.Success;
