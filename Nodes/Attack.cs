@@ -27,9 +27,6 @@ namespace BossroomAb
         protected override NodeStatus Execute(RG rgObject)
         {
         	var nearestEntity = GetData<RGStateEntity>("nearestEntity");
-        	if(nearestEntity == null)
-        		return NodeStatus.Failure;
-        
         	var actionParams = new Dictionary<string, object>
         	{
         		{"targetId", nearestEntity.id},
