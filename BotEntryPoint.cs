@@ -24,6 +24,10 @@ namespace BossroomAb
 
         protected override RootNode BuildBehaviorTree()
         {
+            var attackEnemy = new SequenceNode("Attack enemy");
+            attackEnemy.AddChild(new IsEnemyNearby());
+            attackEnemy.AddChild(new Attack());
+
             var floorSwitches = new SequenceNode("Floor switches");
             floorSwitches.AddChild(new IsFloorSwitchInRange());
             floorSwitches.AddChild(new StandOnSwitch());
@@ -32,14 +36,10 @@ namespace BossroomAb
             supportHuman.AddChild(new IsHumanNearby());
             supportHuman.AddChild(new FollowHuman());
 
-            var attackEnemy = new SequenceNode("Attack enemy");
-            attackEnemy.AddChild(new IsEnemyNearby());
-            attackEnemy.AddChild(new Attack());
-
             var chooseAnAction = new SelectorNode("Choose an action");
+            chooseAnAction.AddChild(attackEnemy);
             chooseAnAction.AddChild(floorSwitches);
             chooseAnAction.AddChild(supportHuman);
-            chooseAnAction.AddChild(attackEnemy);
 
             var topLevelSequenceNode = new SequenceNode("Top Level Sequence Node");
             topLevelSequenceNode.AddChild(new IsInGame());
