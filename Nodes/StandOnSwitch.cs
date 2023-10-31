@@ -26,19 +26,21 @@ namespace BossroomAb
          */
         protected override NodeStatus Execute(RG rgObject)
         {
-        	var switchEntity = GetData<RGStateEntity>("FloorSwitch");
+        	var floorSwitch = GetData<RGStateEntity>("FloorSwitch");
         	var myPlayer = rgObject.GetMyPlayer();
         
-        	if (rgObject.MathFunctions.DistanceSq(myPlayer.position, switchEntity.position) < 0.25)
-        	{
+        	if (RG.MathFunctions.DistanceSq(myPlayer.position, floorSwitch.position) < 0.5)
         		return NodeStatus.Running;
-        	}
-        	else
+        
+        	var followAction = new RGActionRequest("FollowObject", new Dictionary<string, object>
         	{
-        		var followAction = new RGActionRequest("FollowObject", new Dictionary<string, object> { { "targetId", switchEntity.id } });
-        		rgObject.PerformAction(followAction);
-        		return NodeStatus.Success;
-        	}
+        		{ "targetId", floorSwitch.id },
+        		{ "range", 0.25f }
+        	});
+        
+        	rgObject.PerformAction(followAction);
+        
+        	return NodeStatus.Success;
         }
     }
 }

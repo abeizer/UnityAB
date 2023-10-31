@@ -27,7 +27,7 @@ namespace BossroomAb
         protected override NodeStatus Execute(RG rgObject)
         {
         	var myPlayer = rgObject.GetMyPlayer();
-        	if (myPlayer["hasQueuedActions"])
+        	if ((bool)myPlayer["hasQueuedActions"])
         		return NodeStatus.Running;
         	else
         		return NodeStatus.Success;
