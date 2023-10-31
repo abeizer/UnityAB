@@ -22,20 +22,24 @@ namespace BossroomAb
 
         /**
          * Generated from prompt:
-         * Attack the stored "nearestEntity"
+         * Attack the stored "nearestEntity" with skill 0
          */
         protected override NodeStatus Execute(RG rgObject)
         {
         	var nearestEntity = GetData<RGStateEntity>("nearestEntity");
+        	if (nearestEntity == null)
+        	{
+        		return NodeStatus.Failure;
+        	}
+        
         	var actionParams = new Dictionary<string, object>
         	{
-        		{"targetId", nearestEntity.id},
-        		{"xPosition", nearestEntity.position.x},
-        		{"yPosition", nearestEntity.position.y},
-        		{"zPosition", nearestEntity.position.z}
+        		{"skillId", 0},
+        		{"targetId", nearestEntity.id}
         	};
         
-        	rgObject.PerformAction(new RGActionRequest("AttackObject", actionParams));
+        	rgObject.PerformAction(new RGActionRequest("PerformSkill", actionParams));
+        
         	return NodeStatus.Success;
         }
     }
