@@ -22,18 +22,19 @@ namespace BossroomAb
 
         /**
          * Generated from prompt:
-         * 
+         * Find the closest human. If they're more than 50 square meters away then store a reference to them
          */
-        class LeafNode extends TreeNode {
-        	public override async execute(rg): Promise<NodeStatus>{		
-        		const humanPlayer = await rg.findEntity("HumanPlayer");
-        		if(humanPlayer) {
-        			this.setData("humanPlayer", humanPlayer);
-        			return NodeStatus.SUCCESS;
-        		} 
-        
-        		return NodeStatus.FAILURE;
+        protected override NodeStatus Execute(RG rgObject)
+        {
+        	var human = rgObject.FindNearestEntity("HumanPlayer");
+        	if(human == null)
+        		return NodeStatus.Failure;
+        	if(rgObject.MathFunctions.DistanceSq(rgObject.GetMyPlayer().position, human.position) > 50)
+        	{
+        		SetData("closestHuman", human);
+        		return NodeStatus.Success;
         	}
+        	return NodeStatus.Failure;
         }
     }
 }

@@ -22,22 +22,16 @@ namespace BossroomAb
 
         /**
          * Generated from prompt:
-         * 
+         * Approach the "closestHuman" within 2 meters
          */
-        class LeafNode extends TreeNode {
-        	public override async execute(rg): Promise<NodeStatus>{		
-        		const humanPlayer = this.getData<any>("humanPlayer");
-        		const distanceFrom = rg.MathFunctions.distanceSq(rg.getBot().position, humanPlayer.position);
-        		if(humanPlayer &&  (distanceFrom > 30) ) {
-        			rg.performAction("FollowObject", {
-        				targetId: humanPlayer.id,
-        				range: 2
-        			});
-        			return NodeStatus.SUCCESS;
-        		}
+        protected override NodeStatus Execute(RG rgObject)
+        {
+        	var closestHuman = rgObject.FindNearestEntity("HumanPlayer");
+        	if (closestHuman == null)
+        		return NodeStatus.Failure;
         
-        		return NodeStatus.FAILURE;
-        	}
+        	rgObject.PerformAction(new RGActionRequest("FollowObject", new Dictionary<string, object> { { "targetId", closestHuman.id }, { "range", 2 } }));
+        	return NodeStatus.Success;
         }
     }
 }

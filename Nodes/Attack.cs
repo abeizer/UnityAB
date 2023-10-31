@@ -22,22 +22,24 @@ namespace BossroomAb
 
         /**
          * Generated from prompt:
-         * 
+         * Attack the stored "nearestEntity"
          */
-        class LeafNode extends TreeNode {
-        	public override async execute(rg): Promise<NodeStatus>{		
-        		
-        		const enemy = this.getData<any>("enemy");
-        		if(enemy && enemy.health > 0) {
-        			console.log("Queuing attack");
-        			rg.performAction("PerformSkill", {
-        				skillId: 1,
-        				targetId: enemy.id
-        			});
-        			return NodeStatus.RUNNING;
-          	}
-        		return NodeStatus.FAILURE;
-        	}
+        protected override NodeStatus Execute(RG rgObject)
+        {
+        	var nearestEntity = GetData<RGStateEntity>("nearestEntity");
+        	if(nearestEntity == null)
+        		return NodeStatus.Failure;
+        
+        	var actionParams = new Dictionary<string, object>
+        	{
+        		{"targetId", nearestEntity.id},
+        		{"xPosition", nearestEntity.position.x},
+        		{"yPosition", nearestEntity.position.y},
+        		{"zPosition", nearestEntity.position.z}
+        	};
+        
+        	rgObject.PerformAction(new RGActionRequest("AttackObject", actionParams));
+        	return NodeStatus.Success;
         }
     }
 }

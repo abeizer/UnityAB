@@ -22,17 +22,20 @@ namespace BossroomAb
 
         /**
          * Generated from prompt:
-         * 
+         * Find the closest unbroken entity (broken may not exist) on team 1 and store a reference to it
          */
-        class LeafNode extends TreeNode {
-        	public override async execute(rg): Promise<NodeStatus>{		
-        		const enemy = await rg.findNearestEntity("Imp", rg.getBot().position, (entity) => { return entity.team === 1 && !entity.broken});
-        		if(enemy) {
-        			this.setData("enemy", enemy);
-        			return NodeStatus.SUCCESS;
-        		}
-        
-        		return NodeStatus.FAILURE;
+        protected override NodeStatus Execute(RG rgObject)
+        {
+        	var nearestEntity = rgObject.FindNearestEntity(filterFunction: entity => 
+        		(int)entity["team"] == 1 && (!entity.ContainsKey("broken") || !(bool)entity["broken"]));
+        	if (nearestEntity != null)
+        	{
+        		SetData("nearestEntity", nearestEntity);
+        		return NodeStatus.Success;
+        	}
+        	else
+        	{
+        		return NodeStatus.Failure;
         	}
         }
     }
