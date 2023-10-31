@@ -22,15 +22,14 @@ namespace BossroomAb
 
         /**
          * Generated from prompt:
-         * Find the closest unbroken entity (broken may not exist) on team 1 and store a reference to it
+         * Find the closest entity that isn't broken (null or false) on team 1 and store a reference to it
          */
         protected override NodeStatus Execute(RG rgObject)
         {
-        	var nearestEntity = rgObject.FindNearestEntity(filterFunction: entity => 
-        		(int)entity["team"] == 1 && (!entity.ContainsKey("broken") || !(bool)entity["broken"]));
-        	if (nearestEntity != null)
+        	var entity = rgObject.FindNearestEntity(filterFunction: e => e.ContainsKey("team") && (int)e["team"] == 1 && (!e.ContainsKey("broken") || !(bool)e["broken"]));
+        	if (entity != null)
         	{
-        		SetData("nearestEntity", nearestEntity);
+        		SetData("entity", entity);
         		return NodeStatus.Success;
         	}
         	else
