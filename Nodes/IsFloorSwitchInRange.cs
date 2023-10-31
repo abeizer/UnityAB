@@ -27,9 +27,9 @@ namespace BossroomAb
         protected override NodeStatus Execute(RG rgObject)
         {
         	var floorSwitch = rgObject.FindNearestEntity("FloorSwitch", rgObject.GetMyPlayer().position, e => !(bool)e.GetValueOrDefault("isOn", false));
-        	if(floorSwitch == null)
-        		return NodeStatus.Failure;
-        	if(RG.MathFunctions.DistanceSq(rgObject.GetMyPlayer().position, floorSwitch.position) <= 70)
+        	if(floorSwitch == null) return NodeStatus.Failure;
+        
+        	if(RG.MathFunctions.DistanceSq(rgObject.GetMyPlayer().position, floorSwitch.position) <= 30)
         	{
         		SetData("floorSwitch", floorSwitch);
         		return NodeStatus.Success;
