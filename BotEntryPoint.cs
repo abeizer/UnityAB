@@ -44,6 +44,7 @@ namespace BossroomAb
             var topLevelSequenceNode = new SequenceNode("Top Level Sequence Node");
             topLevelSequenceNode.AddChild(new IsInGame());
             topLevelSequenceNode.AddChild(new SetChartype());
+            topLevelSequenceNode.AddChild(new CompleteQueuedActions());
             topLevelSequenceNode.AddChild(chooseAnAction);
 
             var rootNode = new RootNode();
