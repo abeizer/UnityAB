@@ -28,7 +28,7 @@ namespace BossroomAb
         {
         	var myPlayer = rgObject.GetMyPlayer();
         	var floorSwitch = rgObject.FindNearestEntity("FloorSwitch", myPlayer.position, e => (bool)e.GetValueOrDefault("isOn", false));
-        	if (RG.MathFunctions.DistanceSq(myPlayer.position, floorSwitch.position) <= 0.1)
+        	if (floorSwitch != null && RG.MathFunctions.DistanceSq(myPlayer.position, floorSwitch.position) <= 0.1)
         		return NodeStatus.Running;
         	else
         		return NodeStatus.Failure;
