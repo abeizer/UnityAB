@@ -22,12 +22,14 @@ namespace BossroomAb
 
         /**
          * Generated from prompt:
-         * 
+         * If I'm not on the BossRoom scene then Running
          */
-        class LeafNode extends TreeNode {
-        	public override async execute(rg): Promise<NodeStatus>{		
-        		return rg.getState().sceneName == "BossRoom" ? NodeStatus.SUCCESS : NodeStatus.RUNNING;
-        	}
+        protected override NodeStatus Execute(RG rgObject)
+        {
+        	if (rgObject.SceneName != "BossRoom")
+        		return NodeStatus.Running;
+        	else
+        		return NodeStatus.Success;
         }
     }
 }
