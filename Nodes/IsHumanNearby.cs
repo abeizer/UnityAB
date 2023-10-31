@@ -28,7 +28,8 @@ namespace BossroomAb
         {
         	var human = rgObject.FindNearestEntity("HumanPlayer");
         	if(human == null) return NodeStatus.Failure;
-        	if(RG.MathFunctions.DistanceSq(rgObject.GetMyPlayer().position, human.position) > 50)
+        
+        	if(RG.MathFunctions.DistanceSq(rgObject.GetMyPlayer().position, human.position) > 30)
         	{
         		SetData("closestHuman", human);
         		return NodeStatus.Success;
