@@ -26,7 +26,15 @@ namespace BossroomAb
          */
         protected override NodeStatus Execute(RG rgObject)
         {
-            return NodeStatus.SUCCESS;
+        	var closestHuman = GetData<RGStateEntity>("closestHuman");
+        	var followAction = new RGActionRequest("FollowObject", new Dictionary<string, object>
+        	{
+        		{ "targetId", closestHuman.id },
+        		{ "range", 2f }
+        	});
+        
+        	rgObject.PerformAction(followAction);
+        	return NodeStatus.Success;
         }
     }
 }
