@@ -22,24 +22,12 @@ namespace BossroomAb
 
         /**
          * Generated from prompt:
-         * Go stand on the stored "FloorSwitch". If I'm already standing on it then return Running.
+         * Go stand on the stored "floorSwitch"
          */
         protected override NodeStatus Execute(RG rgObject)
         {
-        	var floorSwitch = GetData<RGStateEntity>("FloorSwitch");
-        	var myPlayer = rgObject.GetMyPlayer();
-        
-        	if (RG.MathFunctions.DistanceSq(myPlayer.position, floorSwitch.position) < 0.5)
-        		return NodeStatus.Running;
-        
-        	var followAction = new RGActionRequest("FollowObject", new Dictionary<string, object>
-        	{
-        		{ "targetId", floorSwitch.id },
-        		{ "range", 0.25f }
-        	});
-        
-        	rgObject.PerformAction(followAction);
-        
+        	var floorSwitch = GetData<RGStateEntity>("floorSwitch");
+        	rgObject.PerformAction(new RGActionRequest("FollowObject", new Dictionary<string, object> { { "targetId", floorSwitch.id } }));
         	return NodeStatus.Success;
         }
     }

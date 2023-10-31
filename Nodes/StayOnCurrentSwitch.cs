@@ -14,27 +14,24 @@ using UnityEngine;
 
 namespace BossroomAb
 {
-    public class IsFloorSwitchInRange : ConditionNode
+    public class StayOnCurrentSwitch : ActionNode
     {
-        public IsFloorSwitchInRange() : base("Is floor switch in range?")
+        public StayOnCurrentSwitch() : base("Stay on current switch")
         {
         }
 
         /**
          * Generated from prompt:
-         * Find the closest floor switch that is not on. If it is within 70 sq. meters then store it
+         * If I am within 0.1 sq. meters of a floorswitch that is on, then return running
          */
         protected override NodeStatus Execute(RG rgObject)
         {
-        	var floorSwitch = rgObject.FindNearestEntity("FloorSwitch", rgObject.GetMyPlayer().position, e => !(bool)e.GetValueOrDefault("isOn", false));
-        	if(floorSwitch == null)
+        	var myPlayer = rgObject.GetMyPlayer();
+        	var floorSwitch = rgObject.FindNearestEntity("FloorSwitch", myPlayer.position, e => (bool)e.GetValueOrDefault("isOn", false));
+        	if (RG.MathFunctions.DistanceSq(myPlayer.position, floorSwitch.position) <= 0.1)
+        		return NodeStatus.Running;
+        	else
         		return NodeStatus.Failure;
-        	if(RG.MathFunctions.DistanceSq(rgObject.GetMyPlayer().position, floorSwitch.position) <= 70)
-        	{
-        		SetData("floorSwitch", floorSwitch);
-        		return NodeStatus.Success;
-        	}
-        	return NodeStatus.Failure;
         }
     }
 }
