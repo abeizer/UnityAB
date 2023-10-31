@@ -28,8 +28,7 @@ namespace BossroomAb
         {
         	var entity = rgObject.FindNearestEntity(filterFunction: e => 
         		(int)e.GetValueOrDefault("team", 0) == 1 && 
-        		!(bool)e.GetValueOrDefault("broken", false) && 
-        		(int)e.GetValueOrDefault("health", 0) > 0);
+        		!(bool)e.GetValueOrDefault("broken", false));
         	if (entity != null)
         	{
         		SetData("nearestEntity", entity);
