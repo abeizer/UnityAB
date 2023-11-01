@@ -1,124 +1,140 @@
 {
   "RGStateInfo": [
     {
-      "AssemblyName": "Unity.BossRoom.Gameplay",
-      "Namespace": null,
-      "Object": "RGBreakableObjectState",
+      "ClassName": "RegressionGames.RGBotConfigs.RGState_RGBreakableObjectState",
       "ObjectType": "Crystal",
       "State": [
         {
-          "FieldType": "variable",
-          "FieldName": "team",
           "StateName": "team",
           "Type": "int"
         },
         {
-          "FieldType": "method",
-          "FieldName": "Broken",
           "StateName": "broken",
           "Type": "bool"
         }
       ]
     },
     {
-      "AssemblyName": "Unity.BossRoom.Gameplay",
-      "Namespace": null,
-      "Object": "RGEnemyState",
+      "ClassName": "RegressionGames.RGBotConfigs.RGState_RGEnemyState",
       "ObjectType": "Imp",
       "State": [
         {
-          "FieldType": "variable",
-          "FieldName": "team",
           "StateName": "team",
           "Type": "int"
         },
         {
-          "FieldType": "method",
-          "FieldName": "Health",
           "StateName": "health",
           "Type": "int"
         },
         {
-          "FieldType": "method",
-          "FieldName": "HasQueuedActions",
           "StateName": "hasQueuedActions",
           "Type": "bool"
         },
         {
-          "FieldType": "method",
-          "FieldName": "QueuedActionTargets",
           "StateName": "queuedActionTargets",
           "Type": "System.Collections.Generic.List<ulong>"
         },
         {
-          "FieldType": "method",
-          "FieldName": "IsMoving",
           "StateName": "isMoving",
           "Type": "bool"
         }
       ]
     },
     {
-      "AssemblyName": "Unity.BossRoom.Gameplay",
-      "Namespace": null,
-      "Object": "RGPlayerState",
+      "ClassName": "RegressionGames.RGBotConfigs.RGState_RGPlayerState",
       "ObjectType": "BotPlayer",
       "State": [
         {
-          "FieldType": "variable",
-          "FieldName": "team",
           "StateName": "team",
           "Type": "int"
         },
         {
-          "FieldType": "method",
-          "FieldName": "CharacterType",
           "StateName": "characterType",
           "Type": "string"
         },
         {
-          "FieldType": "method",
-          "FieldName": "Health",
           "StateName": "health",
           "Type": "int"
         },
         {
-          "FieldType": "method",
-          "FieldName": "IsOnCooldown",
           "StateName": "isOnCooldown",
           "Type": "System.Collections.Generic.Dictionary<string, bool>"
         },
         {
-          "FieldType": "method",
-          "FieldName": "HasQueuedActions",
           "StateName": "hasQueuedActions",
           "Type": "bool"
         },
         {
-          "FieldType": "method",
-          "FieldName": "QueuedActionTargets",
           "StateName": "queuedActionTargets",
           "Type": "System.Collections.Generic.List<ulong>"
         },
         {
-          "FieldType": "method",
-          "FieldName": "IsMoving",
           "StateName": "isMoving",
           "Type": "bool"
         }
       ]
     },
     {
-      "AssemblyName": "Unity.BossRoom.Gameplay",
-      "Namespace": "Unity.BossRoom.Gameplay.RegressionGames.RGBossRoom",
-      "Object": "RGSwitchState",
+      "ClassName": "RegressionGames.RGBotConfigs.RGState_RGSwitchState",
       "ObjectType": "FloorSwitch",
       "State": [
         {
-          "FieldType": "method",
-          "FieldName": "IsOn",
           "StateName": "isOn",
           "Type": "bool"
+        }
+      ]
+    },
+    {
+      "ClassName": "RegressionGames.RGBotConfigs.RGState_Button",
+      "ObjectType": "",
+      "State": [
+        {
+          "StateName": "interactable",
+          "Type": "bool"
+        }
+      ]
+    },
+    {
+      "ClassName": "RegressionGames.RGBotConfigs.RGStateProviders.RGState_Platformer2DLevel",
+      "ObjectType": null,
+      "State": [
+        {
+          "StateName": "tileCellSize",
+          "Type": "Vector3"
+        },
+        {
+          "StateName": "platformPositions",
+          "Type": "RegressionGames.RGBotConfigs.RGStateProviders.RGPlatformer2DPosition[]"
+        }
+      ]
+    },
+    {
+      "ClassName": "RegressionGames.RGBotConfigs.RGStateProviders.RGState_Platformer2DPlayer",
+      "ObjectType": null,
+      "State": [
+        {
+          "StateName": "jumpHeight",
+          "Type": "float"
+        },
+        {
+          "StateName": "maxJumpHeight",
+          "Type": "float"
+        },
+        {
+          "StateName": "velocity",
+          "Type": "float"
+        },
+        {
+          "StateName": "maxVelocity",
+          "Type": "float"
+        },
+        {
+          "StateName": "safeFallHeight",
+          "Type": "float"
+        },
+        {
+          "StateName": "nonFatalFallHeight",
+          "Type": "float"
         }
       ]
     }

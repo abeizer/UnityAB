@@ -1,11 +1,8 @@
 {
   "BotActions": [
     {
-      "AssemblyName": "Unity.BossRoom.Gameplay",
-      "Namespace": "Gameplay.RegressionGames.RGBossRoom",
-      "Object": "RGAttackObjectAction",
-      "ObjectType": "HumanPlayer",
-      "MethodName": "AttackObject",
+      "ClassName": "RegressionGames.RGAction_AttackObject",
+      "ObjectType": "BotPlayer",
       "ActionName": "AttackObject",
       "Parameters": [
         {
@@ -31,11 +28,8 @@
       ]
     },
     {
-      "AssemblyName": "Unity.BossRoom.Gameplay",
-      "Namespace": "",
-      "Object": "RGFollowObjectAction",
-      "ObjectType": "HumanPlayer",
-      "MethodName": "FollowObject",
+      "ClassName": "RegressionGames.RGAction_FollowObject",
+      "ObjectType": "BotPlayer",
       "ActionName": "FollowObject",
       "Parameters": [
         {
@@ -51,11 +45,8 @@
       ]
     },
     {
-      "AssemblyName": "Unity.BossRoom.Gameplay",
-      "Namespace": "Unity.BossRoom.Gameplay.RegressionGames.RGBossRoom",
-      "Object": "RGPerformSkillAction",
-      "ObjectType": "HumanPlayer",
-      "MethodName": "PerformSkill",
+      "ClassName": "RegressionGames.RGAction_PerformSkill",
+      "ObjectType": "BotPlayer",
       "ActionName": "PerformSkill",
       "Parameters": [
         {
